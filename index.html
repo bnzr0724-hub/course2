@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>海大電機・課程島</title>
+<style>
+:root{--sea:#d4ecf3;--land:#f4e8c8;--shore:#fbf5e2;--ink:#26323a;--card:#fffdf6;--line:#d9cfae;--g:#2f8b79;--m:#2f6fb0;--e:#b8651a;--d:#7a4aa3;--s:#5d6b78;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--sea:#0c2735;--land:#3b3a2c;--shore:#4a4836;--ink:#eee8d5;--card:#16222a;--line:#355060}}
+:root[data-theme=dark]{--sea:#0c2735;--land:#3b3a2c;--shore:#4a4836;--ink:#eee8d5;--card:#16222a;--line:#355060}
+body{margin:0;background:var(--sea);color:var(--ink);font:15px/1.5 "PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;padding:0 12px 170px}
+h1{margin:14px 0 2px;font-size:22px}p.sub{margin:0 0 10px;font-size:13px;opacity:.75}
+.bar0{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+button{font:inherit;color:inherit;cursor:pointer}
+.tb,.ch{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:4px 12px;font-size:13px}
+.tb.act{background:var(--ink);color:var(--card)}.ch.act{outline:2px solid var(--ink)}
+.ch::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--c)}
+.world{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:14px}
+.isl{background:var(--land);border-radius:40px 64px 44px 60px;padding:14px 14px 16px;box-shadow:0 0 0 8px var(--shore);transition:.3s}
+.isl.hl{transform:scale(1.015);box-shadow:0 0 0 8px var(--e)}
+.isl h2{margin:0;font-size:19px}.isl h2 small{font-size:12px;font-weight:400;margin-left:8px;opacity:.7}
+.walk{position:relative;height:58px}
+.stu{position:absolute;bottom:0;border:0;background:none;padding:0;animation:w 8s ease-in-out infinite alternate}
+.stu+.stu{animation-direction:alternate-reverse;animation-delay:-3s}
+@keyframes w{from{left:2%}to{left:calc(100% - 38px)}}
+@media(prefers-reduced-motion:reduce){.stu{animation:none}}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+h3{margin:4px 0 6px;font-size:12px;opacity:.7;font-weight:400}.n{font-size:12px;opacity:.7}
+.cols>div,.row{display:flex;flex-direction:column;gap:6px}.row{flex-direction:row;flex-wrap:wrap}
+.t{border:0;border-radius:10px;padding:6px 9px;color:#fff;text-align:left;font-size:13px;display:flex;justify-content:space-between;gap:6px;line-height:1.35}
+.t b{font-weight:400;opacity:.85;white-space:nowrap}
+.t.g{background:var(--g)}.t.m{background:var(--m)}.t.e{background:var(--e)}.t.d{background:var(--d)}.t.s{background:var(--s)}
+.t.on{outline:3px solid var(--ink)}.t.rl{outline:3px dashed var(--ink)}.dim{opacity:.22}
+.card{background:var(--card);border-radius:16px;padding:12px;margin-top:14px}
+#q{width:100%;box-sizing:border-box;padding:8px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;margin-bottom:8px}
+.r{display:flex;gap:8px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line);font-size:14px}
+.r i{width:10px;height:10px;border-radius:50%;flex:none}.r span:nth-child(2){flex:1}.r small{opacity:.65}
+.bars{display:flex;align-items:flex-end;gap:8px}.bk{flex:1;text-align:center;font-size:12px}
+.stack{display:flex;flex-direction:column-reverse}.stack i{display:block}
+i.g{background:var(--g)}i.m{background:var(--m)}i.e{background:var(--e)}i.d{background:var(--d)}i.s{background:var(--s)}
+#dock{position:fixed;left:0;right:0;bottom:0;display:flex;gap:10px;align-items:flex-end;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--line)}
+#dock .who{text-align:center;font-size:11px}
+#bub{flex:1;background:var(--land);border-radius:14px;padding:9px 12px;font-size:14px;line-height:1.5;max-height:112px;overflow:auto}
+#tour{border:0;background:var(--e);color:#fff;border-radius:20px;padding:4px 12px;font-size:13px}
+footer{font-size:12px;opacity:.7;margin-top:16px}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><symbol id="p" viewBox="0 0 40 56"><circle cx="20" cy="14" r="9" fill="#f6d2b0"/><path d="M6 55q0-25 14-25t14 25z" fill="currentColor"/><circle cx="16.5" cy="14" r="1.2" fill="#333"/><circle cx="23.5" cy="14" r="1.2" fill="#333"/></symbol></svg>
+<h1>海大電機・課程島</h1>
+<p class="sub">國立臺灣海洋大學電機系大學部・115 學年度入學生必修課程地圖</p>
+<div class="bar0"><button class="tb act" data-v="a">全景</button><button class="tb" data-v="l">清單</button><button class="tb" data-v="t">學分</button><button id="tour">▶ 系主任導覽</button></div>
+<div class="bar0" id="chips"></div>
+<main id="v"></main>
+<footer>資料來源：電機系 115 學年度入學生必修科目表、必修與核心課程關聯圖。課程介紹與銜接關係為示意說明，實際規定請以系上與學校公告為準。</footer>
+<div id="dock"><div class="who"><svg viewBox="0 0 40 56" width="54" style="color:#5b6c7a"><use href="#p"/><path d="M11 11q9-9 18 0q-9-3-18 0z" fill="#aaa"/><g fill="none" stroke="#333" stroke-width="1.2"><circle cx="16.5" cy="14" r="3.2"/><circle cx="23.5" cy="14" r="3.2"/><path d="M19.7 14h.6"/></g><path d="M20 31l-3 5 3 14 3-14z" fill="#c0392b"/></svg><br>系主任</div><div id="bub"></div></div>
+<script>
+const N=["","大一上","大一下","大二上","大二下","大三上","大三下","大四上","大四下"];
+const T={g:"共同教育",m:"系訂必修",e:"核心必選修",d:"領域",s:"專業選修"};
+const GC=["","#e8743b","#2f9e6f","#3b7fd0","#b05bd1"];
+const C=`1|g|國文①|2|閱讀與表達的基本功，不同課號修足 4 學分即可。
+1|g|大一英文①|2|為專業英文閱讀打底，可用全民英檢成績抵免。
+1|g|人工智慧概論|2|大一必修博雅課程，認識 AI 的原理與應用。
+1|m|普通物理①|3|力學入門，建立電機專業需要的物理直覺。
+1|m|微積分①|4|極限、微分、積分，工程數學的第一塊基石。
+1|m|程式設計＋實習|4|學會用程式解題，也是日後資料結構的前導。
+1|m|交換電路與邏輯設計＋實驗|4|布林代數與數位電路，動手接出第一個邏輯電路。
+2|g|國文②|2|延續國文領域，與上學期合計修滿 4 學分。
+2|g|大一英文②|2|大一英文下學期，與上學期合計 4 學分。
+2|g|海洋科學概論|2|大一必修博雅課程，認識海洋，也認識我們的學校。
+2|m|普通物理②|3|延伸到電、磁與波動，銜接後面的電磁學。
+2|m|微積分②|4|多變數與級數，為工程數學做好準備。
+2|m|電路學①|3|從歐姆定律到網路分析，電機的語言從這裡開始。
+2|m|工程數學(Ⅰ)|3|微分方程等數學工具，用來描述電路與系統。
+2|m|微處理機概論＋實驗|4|認識微處理機架構，用程式控制真實硬體。
+3|g|進階英文|2|大二（含）以上才能修，加強學術與專業英文。
+3|g|博雅課程|4|人文探索、社會脈動、科技創新、跨域永續四大領域，共 14 學分，跨域永續至少 2 學分。
+3|m|電路學②|3|接續電路學①，需依序修習。
+3|m|工程數學(Ⅱ)|3|傅立葉與拉普拉斯等方法，是訊號與系統的數學基礎。
+3|m|線性代數|3|矩陣與向量空間，處理多變數問題的利器。
+3|m|電磁學|3|靜電與靜磁，理解場與波的起點。
+3|m|電子學＋實驗①|4|二極體與電晶體，電子學三學期系列的第一站。
+4|g|博雅課程|4|
+4|m|電子學＋實驗②|4|放大電路與頻率響應，理論與實驗同步進行。
+4|m|電磁波|3|從馬克士威方程到傳輸線與天線，電波領域的入門。
+4|m|機率學|3|隨機現象的數學，通訊與訊號處理常用。
+4|m|訊號與系統|3|時域與頻域分析，連結通訊、控制與影像。
+4|e|核心必選修|3|自動控制、資料結構、半導體物理、電機機械、複變函數、通訊工程六門核心課程，至少必選 3 門，並加修 2 門對應領域的指定課程。
+5|g|博雅課程|4|
+5|m|電子學＋實驗③|4|進階電路與設計，完成三學期的電子學。
+5|e|核心必選修|3|
+6|g|博雅課程|2|
+6|m|專題研究(Ⅰ)|2|開始做專題，從題目發想到初步成果。
+6|e|核心必選修|3|
+7|m|專題研究(Ⅱ)|2|完成專題研究，整理並展示成果。
+9|s|專業選修|24|依興趣深化：外系選修不超過 12 學分（電資學院以外不超過 6），日文最多 4 學分可列入，共同教育、軍訓、體育不計入。
+9|d|資訊科技領域|0|資料結構、演算法與軟硬體整合，可從「資料結構」核心出發。（對應為示意）
+9|d|電波領域|0|微波、天線與電磁應用，可從「電磁波」「複變函數」延伸。（對應為示意）
+9|d|固態電子領域|0|半導體元件與積體電路，可從「半導體物理」出發。（對應為示意）
+9|d|電力與電子電路領域|0|電機機械、電力電子與電源設計，可從「電機機械」出發。（對應為示意）
+9|d|控制領域|0|自動控制、機器人與智慧系統，可從「自動控制」出發。（對應為示意）
+9|d|通訊與訊號處理領域|0|通訊工程、影像與語音處理，可從「通訊工程」「訊號與系統」延伸。（對應為示意）`
+.split("\n").map(l=>{const[s,t,n,c,x]=l.split("|");return{s:+s,t,n,c:+c,x}});
+C.forEach(c=>{if(!c.x)c.x=C.find(o=>o.n==c.n&&o.x).x});
+const P="微積分①>微積分②;微積分②>工程數學(Ⅰ);工程數學(Ⅰ)>工程數學(Ⅱ);普通物理①>普通物理②;普通物理②>電磁學;電磁學>電磁波;電路學①>電路學②;電路學②>電子學＋實驗①;電子學＋實驗①>電子學＋實驗②;電子學＋實驗②>電子學＋實驗③;工程數學(Ⅱ)>訊號與系統;程式設計＋實習>微處理機概論＋實驗;交換電路與邏輯設計＋實驗>微處理機概論＋實驗;專題研究(Ⅰ)>專題研究(Ⅱ)".split(";").map(p=>p.split(">"));
+const gs=i=>C.filter(c=>c.s==2*i-1||c.s==2*i).reduce((a,c)=>a+(c.t=="e"||c.t=="g"||c.t=="m"?c.c:0),0);
+const G=i=>["大一是打底年：物理、微積分、程式與數位邏輯一起上，共 "+gs(1)+" 學分。","大二是電機核心起飛：電路、電子學、電磁與訊號，共 "+gs(2)+" 學分。","大三開始分流：完成電子學、展開專題，並選修核心課程，共 "+gs(3)+" 學分。","大四專題收尾，再依興趣挑一個領域深化，並累積專業選修 24 學分。"][i];
+const $=q=>document.querySelector(q),$$=q=>document.querySelectorAll(q);
+const say=h=>{$("#bub").innerHTML=h};
+const tile=c=>`<button class="t ${c.t}" data-n="${c.n}" data-s="${c.s}"><span>${c.n}</span><b>${c.t=="d"?"領域":c.c+" 學分"}</b></button>`;
+const person=(i,cap)=>`<button class="stu" data-g="${i}" aria-label="大${"一二三四"[i-1]}學生" style="color:${GC[i]}"><svg viewBox="0 0 40 56" width="34"><use href="#p"/><path d="M4 8 20 2l16 6-16 6z" fill="#333"/></svg></button>`;
+let F=null,V="a";
+function render(){
+ const v=$("#v");
+ if(V=="a"){v.innerHTML='<div class="world">'+[1,2,3,4].map(i=>{
+  const a=C.filter(c=>c.s==2*i-1),b=C.filter(c=>c.s==2*i);
+  return `<section class="isl" id="i${i}"><h2>大${"一二三四"[i-1]}<small>${gs(i)} 學分</small></h2><div class="walk">${person(i)}${person(i)}</div><div class="cols"><div><h3>上學期</h3>${a.map(tile).join("")}</div><div><h3>下學期</h3>${b.length?b.map(tile).join(""):'<p class="n">以專題成果、選修與領域深化為主</p>'}</div></div>${i==4?'<h3 style="margin-top:12px">領域深化與選修</h3><div class="row">'+C.filter(c=>c.s==9).map(tile).join("")+"</div>":""}</section>`}).join("")+"</div>";
+ }else if(V=="l"){
+  v.innerHTML='<div class="card"><input id="q" placeholder="搜尋課名…">'+C.filter(c=>c.s<9).map(c=>`<div class="r" data-t="${c.n}"><i class="${c.t}"></i><span>${c.n}</span><small>${N[c.s]}・${c.c} 學分</small></div>`).join("")+"</div>";
+  $("#q").oninput=e=>$$(".r").forEach(r=>r.hidden=!r.dataset.t.includes(e.target.value));
+ }else{
+  const S=[1,2,3,4,5,6,7].map(s=>{const o={g:0,m:0,e:0};C.filter(c=>c.s==s&&c.t in o).forEach(c=>o[c.t]+=c.c);return o});
+  v.innerHTML='<div class="card"><div class="bars">'+S.map((o,k)=>`<div class="bk"><div class="stack">${["g","m","e"].map(t=>`<i class="${t}" style="height:${o[t]*8}px"></i>`).join("")}</div>${N[k+1]}<br><b>${o.g+o.m+o.e}</b></div>`).join("")+"</div></div>"+'<div class="card">表列必修共 106 學分（含核心必選修 9 學分）；另需加修 2 門領域指定課程（6 學分），必修合計 112 學分。專業選修至少 24 學分，畢業最低 136 學分。</div>';
+ }
+ apply();
+}
+function apply(){$$(".t").forEach(e=>e.classList.toggle("dim",!!F&&!(e.classList.contains(F)||(F=="d"&&e.classList.contains("s")))))}
+function pick(b){
+ const n=b.dataset.n,c=C.find(x=>x.n==n&&x.s==b.dataset.s),r=new Set();
+ $$(".t").forEach(e=>e.classList.remove("on","rl"));b.classList.add("on");
+ P.forEach(([a,z])=>{if(a==n)r.add(z);if(z==n)r.add(a)});
+ $$(".t").forEach(e=>{if(r.has(e.dataset.n))e.classList.add("rl")});
+ say(`<b>${n}</b>｜${N[c.s]||"領域深化"}${c.t=="d"?"":"・"+c.c+" 學分"}・${T[c.t]}<br>${c.x}${r.size?`<br><small>常見銜接（示意）：${[...r].join("、")}</small>`:""}`);
+}
+$("#chips").innerHTML=[["g","共同教育"],["m","系訂必修"],["e","核心必選修"],["d","領域與選修"]].map(([k,n])=>`<button class="ch" data-k="${k}" style="--c:var(--${k})">${n}</button>`).join("");
+$("#chips").onclick=e=>{const k=e.target.dataset.k;if(!k)return;F=F==k?null:k;$$(".ch").forEach(b=>b.classList.toggle("act",b.dataset.k==F));apply()};
+$$(".tb").forEach(b=>b.onclick=()=>{V=b.dataset.v;$$(".tb").forEach(x=>x.classList.toggle("act",x==b));render()});
+$("#v").onclick=e=>{const t=e.target.closest(".t"),s=e.target.closest(".stu");if(t)pick(t);else if(s)say(`<b>大${"一二三四"[s.dataset.g-1]}同學</b>：${G(s.dataset.g-1)}`)};
+let tm=0;const tb=$("#tour");
+function stop(){clearInterval(tm);tm=0;tb.textContent="▶ 系主任導覽"}
+tb.onclick=()=>{
+ if(tm){stop();return}
+ if(V!="a"){V="a";$$(".tb").forEach(x=>x.classList.toggle("act",x.dataset.v=="a"));render()}
+ let i=0;tb.textContent="■ 停止導覽";
+ const go=()=>{if(i>3){stop();$$(".isl").forEach(e=>e.classList.remove("hl"));say("導覽結束！點任何一棟建築，我再仔細介紹。");return}
+  const el=$("#i"+(i+1));el.scrollIntoView({behavior:"smooth",block:"center"});
+  $$(".isl").forEach(e=>e.classList.toggle("hl",e==el));say(G(i));i++};
+ go();tm=setInterval(go,5500);
+};
+say("同學好，我是電機系系主任。點一棟建築，我來介紹這門課；點島上的同學，聽聽這一年的重點；或按「系主任導覽」跟我走一圈。");
+render();
+</script></body></html>
